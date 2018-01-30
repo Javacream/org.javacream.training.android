@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Lastname:"
+            android:text="@string/labelLastname"
             android:labelFor="@id/lastnameInput"
             />
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Firstname:"
+            android:text="@string/labelFirstname"
             android:labelFor="@id/firstnameInput"
 
             />
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Gender:"
+            android:text="@string/labelGender"
             android:labelFor="@id/genderInput"
 
             />
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Height:"
+            android:text="@string/labelHeight"
             android:labelFor="@id/heightInput"
             />
         <EditText
@@ -115,14 +115,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save" />
+            android:text="@string/buttonSave" />
 
         <Button
             android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Reset" />
+            android:text="@string/buttonReset" />
     </LinearLayout>
 
 </LinearLayout>
