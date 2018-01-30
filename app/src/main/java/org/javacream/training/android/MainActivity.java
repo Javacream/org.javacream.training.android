@@ -11,12 +11,17 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.javacream.training.android.people.PeopleAppContext;
+import org.javacream.training.android.people.controller.CreatePersonController;
+import org.javacream.training.android.people.model.Person;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText lastnameInput;
     private EditText firstnameInput;
     private EditText genderInput;
     private EditText heightInput;
+    private CreatePersonController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         firstnameInput = findViewById(R.id.firstnameInput);
         genderInput = findViewById(R.id.genderInput);
         heightInput = findViewById(R.id.heightInput);
+        PeopleAppContext.init();
+        controller = PeopleAppContext.createPersonController();
     }
 
 
@@ -34,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         String firstname = firstnameInput.getText().toString();
         String gender = genderInput.getText().toString();
         String height = heightInput.getText().toString();
-        String message = "saved person, lastname=" + lastname + ", firstname=" + firstname + ", gender=" + gender + ", height=" + height;
+        Person createdPerson = controller.create(lastname, firstname, gender.charAt(0), Integer.parseInt(height));
+        String message = "created person " + createdPerson.toString();
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
     public void handleReset(View view) {
