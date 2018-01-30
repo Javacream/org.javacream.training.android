@@ -31,17 +31,22 @@ public class MainActivity extends AppCompatActivity {
         firstnameInput = findViewById(R.id.firstnameInput);
         genderInput = findViewById(R.id.genderInput);
         heightInput = findViewById(R.id.heightInput);
-        PeopleAppContext.init();
+        PeopleAppContext.init(this);
         controller = PeopleAppContext.createPersonController();
     }
 
 
     public void handleSave(View view) {
+
         String lastname = lastnameInput.getText().toString();
         String firstname = firstnameInput.getText().toString();
         String gender = genderInput.getText().toString();
         String height = heightInput.getText().toString();
-        Person createdPerson = controller.create(lastname, firstname, gender.charAt(0), Integer.parseInt(height));
+        controller.create(lastname, firstname, gender.charAt(0), Integer.parseInt(height));
+
+    }
+
+    public void handleSaveUpdate(Person createdPerson){
         String message = "created person " + createdPerson.toString();
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

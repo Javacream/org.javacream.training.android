@@ -15,6 +15,13 @@ public class PeopleModel {
     }
 
     public Person create(String lastname, String firstname, Character gender, Integer height){
+        //Simulation einer lang-dauernden Aktion
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         Person person = new Person(counter++, lastname, firstname, gender, height);
         people.put(person.getId(), person);
         return person;
