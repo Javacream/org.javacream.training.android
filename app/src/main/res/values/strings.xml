@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Training Android</string>
+    <string name="labelId">Id:</string>
     <string name="labelLastname">Lastname:</string>
     <string name="labelFirstname">Firstname:</string>
     <string name="labelGender">Gender:</string>
     <string name="labelHeight">Height:</string>
     <string name="buttonSave">Save</string>
     <string name="buttonReset">Reset</string>
+    <string name="buttonSearch">Search</string>
+    <string name="buttonGotoSearch">Search</string>
+    <string name="buttonGotoCreate">Create</string>
+    <string name="title_activity_person_search">Search Person</string>
+    <string name="title_activity_person_create">Create Person</string>
 </resources>

@@ -2,35 +2,33 @@ package org.javacream.training.android.people.controller;
 
 import android.os.AsyncTask;
 
-import org.javacream.training.android.CreatePersonActivity;
+import org.javacream.training.android.MainActivity;
+import org.javacream.training.android.SearchPersonActivity;
 import org.javacream.training.android.people.model.PeopleModel;
 import org.javacream.training.android.people.model.Person;
 
-
-public class CreatePersonController {
+public class SearchPersonController {
     private PeopleModel peopleModel;
     public void setPeopleModel(PeopleModel peopleModel) {
         this.peopleModel = peopleModel;
     }
 
-
-    public void create(final String lastname, final String firstname, final Character gender, final Integer height, final CreatePersonActivity personCreateActivity) {
+    public void search(final Long id, final SearchPersonActivity searchPersonActivity) {
 
         new AsyncTask<Void, Void, Person>(){
             @Override
             protected Person doInBackground(Void... voids) {
-                Person p =  peopleModel.create(lastname, firstname, gender, height);
+                Person p =  peopleModel.findById(id);
                 return p;
             }
 
             @Override
             protected void onPostExecute(Person person) {
-                personCreateActivity.handleSaveUpdate(person);
+                searchPersonActivity.handleSearchUpdate(person);
             }
 
         }.execute();
     }
-
 
 }
 
