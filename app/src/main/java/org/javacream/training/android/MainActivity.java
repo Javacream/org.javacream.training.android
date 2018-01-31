@@ -26,4 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void gotoListPerson(View view) {
+        Intent intent = new Intent(this, PeopleListActivity.class);
+        startActivity(intent);
+    }
 }

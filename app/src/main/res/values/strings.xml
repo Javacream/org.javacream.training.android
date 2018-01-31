@@ -12,4 +12,7 @@
     <string name="buttonGotoCreate">Create</string>
     <string name="title_activity_person_search">Search Person</string>
     <string name="title_activity_person_create">Create Person</string>
+    <string name="buttonGotolist">List</string>
+    <string name="buttonSearchPeople">Search People String</string>
+    <string name="buttonSearchPeopleAsStringList">Search String List</string>
 </resources>
