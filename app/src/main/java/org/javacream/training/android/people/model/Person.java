@@ -1,10 +1,12 @@
 package org.javacream.training.android.people.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 30.01.2018.
  */
 
-public class Person {
+public class Person implements Serializable{
     private long id;
     private String lastname;
     private String firstname;

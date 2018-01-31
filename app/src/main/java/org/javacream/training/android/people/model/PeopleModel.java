@@ -1,71 +1,23 @@
 package org.javacream.training.android.people.model;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by Administrator on 31.01.2018.
+ */
 
-public class PeopleModel {
-    private HashMap<Long, Person> people;
+public interface PeopleModel {
+    Person create(String lastname, String firstname, Character gender, Integer height);
 
-    private Long counter;
-    {
-        people = new HashMap<>();
-        counter = 0l;
-    }
+    void delete(long id);
 
-    public Person create(String lastname, String firstname, Character gender, Integer height){
-        //Simulation einer lang-dauernden Aktion
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    Person findById(long id);
 
-        Person person = new Person(counter++, lastname, firstname, gender, height);
-        people.put(person.getId(), person);
-        return person;
-    }
+    Set<Person> findByLastname(String lastname);
 
-    public void delete(long id){
-        people.remove(id);
-    }
+    Set<Person> findMales();
 
-    public Person findById(long id){
-        return people.get(id);
-    }
+    Set<Person> findFemales();
 
-    public Set<Person> findByLastname(final String lastname){
-        HashSet<Person> result = new HashSet<>();
-        for (Person p: people.values()){
-            if (p.getLastname().equals(lastname)){
-                result.add(p);
-            }
-        }
-        return result;
-    }
-    public Set<Person> findMales(){
-        HashSet<Person> result = new HashSet<>();
-        for (Person p: people.values()){
-            if (p.getGender().equals('m') || p.getGender().equals('M')){
-                result.add(p);
-            }
-        }
-        return result;
-    }
-    public Set<Person> findFemales(){
-        HashSet<Person> result = new HashSet<>();
-        for (Person p: people.values()){
-            if (p.getGender().equals('f') || p.getGender().equals('F')){
-                result.add(p);
-            }
-        }
-        return result;
-    }
-
-    public void update(Person p){
-        people.put(p.getId(), p);
-    }
-
-
+    void update(Person p);
 }

@@ -2,7 +2,6 @@ package org.javacream.training.android.people.controller;
 
 import android.os.AsyncTask;
 
-import org.javacream.training.android.MainActivity;
 import org.javacream.training.android.SearchPersonActivity;
 import org.javacream.training.android.people.model.PeopleModel;
 import org.javacream.training.android.people.model.Person;

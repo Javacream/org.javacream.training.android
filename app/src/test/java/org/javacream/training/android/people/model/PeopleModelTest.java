@@ -3,10 +3,6 @@ package org.javacream.training.android.people.model;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -14,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 
 public class PeopleModelTest {
 
-    private PeopleModel peopleModel;
+    private MapPeopleModel peopleModel;
 
     @Before public void init(){
-        peopleModel = new PeopleModel();
+        peopleModel = new MapPeopleModel();
         for (int i=  0; i < 11; i++){
             Character gender;
             if (i % 2 == 0){
