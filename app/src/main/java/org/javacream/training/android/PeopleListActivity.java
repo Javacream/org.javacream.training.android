@@ -62,6 +62,5 @@ public class PeopleListActivity extends AppCompatActivity {
         data.clear();
         data.addAll(people);
         personAdapter.notifyDataSetChanged();
-        peopleList.setAdapter(personAdapter);
     }
 }
