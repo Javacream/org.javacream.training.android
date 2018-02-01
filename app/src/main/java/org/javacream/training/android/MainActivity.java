@@ -3,17 +3,21 @@ package org.javacream.training.android;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import org.javacream.training.android.people.PeopleAppContext;
 
 public class MainActivity extends AppCompatActivity {
-    public void gotoSearchPerson(View view) {
+    public void gotoSearchPerson() {
         Intent intent = new Intent(this, SearchPersonActivity.class);
         startActivity(intent);
     }
 
-    public void gotoCreatePerson(View view) {
+    public void gotoCreatePerson() {
         Intent intent = new Intent(this, CreatePersonActivity.class);
         startActivity(intent);
     }
@@ -21,12 +25,46 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.people_layout);
+        setContentView(R.layout.activity_main);
         PeopleAppContext.init(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch(id){
+            case R.id.menu_goto_create: {
+                gotoCreatePerson();
+                return true;
+            }
+            case R.id.menu_goto_search_one: {
+                gotoSearchPerson();
+                return true;
+            }
+            case R.id.menu_goto_search: {
+                gotoListPerson();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
-    public void gotoListPerson(View view) {
+    public void gotoListPerson() {
         Intent intent = new Intent(this, PeopleListActivity.class);
         startActivity(intent);
     }
