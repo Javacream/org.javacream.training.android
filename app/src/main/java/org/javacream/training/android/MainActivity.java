@@ -18,22 +18,18 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
-    private EditText uriInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        uriInput = findViewById(R.id.urlInput);
         webView = findViewById(R.id.webView);
+        webView.clearCache(true);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("http://10.28.4.1:9090/referent/index.html");
     }
 
-    public void handleLoadUri(View view) {
-
-        webView.loadUrl(uriInput.getText().toString());
-    }
 
     private class MyWebViewClient extends WebViewClient {
         @Override
