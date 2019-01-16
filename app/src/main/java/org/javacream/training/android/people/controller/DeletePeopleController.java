@@ -2,6 +2,7 @@ package org.javacream.training.android.people.controller;
 
 import android.os.AsyncTask;
 
+import org.javacream.training.android.people.model.MapPeopleModel;
 import org.javacream.training.android.people.model.PeopleModel;
 
 public class DeletePeopleController {

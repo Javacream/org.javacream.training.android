@@ -3,10 +3,12 @@ package org.javacream.training.android.people;
 
 import org.javacream.training.android.people.controller.DeletePeopleController;
 import org.javacream.training.android.people.controller.ListPeopleController;
+import org.javacream.training.android.people.model.PeopleModel;
+import org.javacream.training.android.people.model.ServerPeopleModel;
 import org.javacream.training.android.people.view.MainActivity;
 import org.javacream.training.android.people.controller.CreatePersonController;
 import org.javacream.training.android.people.controller.SearchPersonController;
-import org.javacream.training.android.people.model.PeopleModel;
+import org.javacream.training.android.people.model.MapPeopleModel;
 
 public class PeopleAppContext {
 
@@ -14,10 +16,10 @@ public class PeopleAppContext {
     private static SearchPersonController searchPersonController;
     private static ListPeopleController listPeopleController;
     private static DeletePeopleController deletePeopleController;
-    private static PeopleModel peopleModel;
+    private static ServerPeopleModel peopleModel;
 
     public static void init(MainActivity mainActivity){
-        peopleModel = new PeopleModel();
+        peopleModel = new ServerPeopleModel();
         createPersonController = new CreatePersonController();
         searchPersonController = new SearchPersonController();
         listPeopleController = new ListPeopleController();
