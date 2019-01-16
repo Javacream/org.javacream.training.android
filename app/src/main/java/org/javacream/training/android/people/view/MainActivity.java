@@ -13,6 +13,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SearchPersonActivity.class);
         startActivity(intent);
     }
+    public void gotoWebView(View view) {
+        Intent intent = new Intent(this, WebViewActivity.class);
+        startActivity(intent);
+    }
+
 
     public void gotoCreatePerson(View view) {
         Intent intent = new Intent(this, CreatePersonActivity.class);
