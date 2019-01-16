@@ -1,10 +1,11 @@
-package org.javacream.training.android;
+package org.javacream.training.android.people.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import org.javacream.training.android.R;
 import org.javacream.training.android.people.PeopleAppContext;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreatePersonActivity.class);
         startActivity(intent);
     }
+    public void gotoPeopleList(View view) {
+        Intent intent = new Intent(this, ListPeopleActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +30,8 @@ public class MainActivity extends AppCompatActivity {
         PeopleAppContext.init(this);
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

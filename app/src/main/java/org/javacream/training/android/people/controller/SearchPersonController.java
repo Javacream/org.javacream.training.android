@@ -2,8 +2,6 @@ package org.javacream.training.android.people.controller;
 
 import android.os.AsyncTask;
 
-import org.javacream.training.android.MainActivity;
-import org.javacream.training.android.SearchPersonActivity;
 import org.javacream.training.android.people.model.PeopleModel;
 import org.javacream.training.android.people.model.Person;
 
@@ -13,7 +11,7 @@ public class SearchPersonController {
         this.peopleModel = peopleModel;
     }
 
-    public void search(final Long id, final SearchPersonActivity searchPersonActivity) {
+    public void search(final Long id, final UpdateCallback callback) {
 
         new AsyncTask<Void, Void, Person>(){
             @Override
@@ -24,11 +22,13 @@ public class SearchPersonController {
 
             @Override
             protected void onPostExecute(Person person) {
-                searchPersonActivity.handleSearchUpdate(person);
+                callback.updateSearchPerson(person);
             }
 
         }.execute();
     }
-
+    public interface UpdateCallback {
+        void updateSearchPerson(Person person);
+    }
 }
 
