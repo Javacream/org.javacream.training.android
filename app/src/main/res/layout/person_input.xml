@@ -127,12 +127,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="doSave"
             android:text="@string/buttonSave" />
         <Button
             android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="doClear"
             android:text="@string/buttonReset"
             />
     </LinearLayout>
