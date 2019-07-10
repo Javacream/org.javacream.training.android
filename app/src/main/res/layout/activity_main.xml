@@ -11,7 +11,6 @@
         android:background="#03A9F4"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
         android:text="@string/caption"
         android:textSize="26pt" />
 
@@ -37,8 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </LinearLayout>
 
     <LinearLayout
@@ -113,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="number"
             />
 
 
@@ -129,7 +127,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="handleSave"
             android:text="@string/buttonSave" />
         <Button
             android:id="@+id/resetButton"
