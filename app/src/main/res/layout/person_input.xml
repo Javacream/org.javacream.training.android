@@ -137,6 +137,16 @@
             android:onClick="doClear"
             android:text="@string/buttonReset"
             />
+
+        <Button
+            android:id="@+id/showLogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="doShowLog"
+            android:text="@string/buttonShowLog"
+            />
+
     </LinearLayout>
 
 </LinearLayout>
