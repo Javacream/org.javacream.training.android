@@ -28,4 +28,9 @@ public class PeopleMainActivity extends AppCompatActivity {
         this.startActivity(intent);
 
     }
+
+    public void doNavigationToDeletePerson(View view) {
+        Intent intent = new Intent(this, DeletePersonActivity.class);
+        this.startActivity(intent);
+    }
 }
