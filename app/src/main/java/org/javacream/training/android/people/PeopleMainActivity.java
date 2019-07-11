@@ -34,15 +34,33 @@ public class PeopleMainActivity extends AppCompatActivity {
         logView = (LinearLayout) getLayoutInflater().inflate(R.layout.log_layout, null);
         logView.setOrientation(LinearLayout.VERTICAL);
         createFields();
+        checkSaveButtonActive();
     }
 
     private void createFields(){
+        View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener(){
+
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                checkSaveButtonActive();
+            }
+        };
         lastnameInput  = this.findViewById(R.id.lastnameInput);
         firstnameInput  = this.findViewById(R.id.firstnameInput);
         genderInput  = this.findViewById(R.id.genderInput);
         heightInput  = this.findViewById(R.id.heightInput);
-        lastnameInput.setText("HELLO FROM ACTIVITY");
         saveButton = findViewById(R.id.saveButton);
+        lastnameInput.setText("HELLO FROM ACTIVITY");
+        lastnameInput.setOnFocusChangeListener(focusChangeListener);
+        firstnameInput.setOnFocusChangeListener(focusChangeListener);
+        heightInput.setOnFocusChangeListener(focusChangeListener);
+        genderInput.setOnFocusChangeListener(focusChangeListener);
+    }
+
+
+    private void checkSaveButtonActive(){
+        boolean isSaveButtonActive = ((lastnameInput.getText().length() > 0)&&(firstnameInput.getText().length() > 0)&&(genderInput.getText().length() > 0)&&(heightInput.getText().length() > 0));
+        saveButton.setEnabled(isSaveButtonActive);
     }
     @Override
     protected void onStart() {
@@ -85,6 +103,7 @@ public class PeopleMainActivity extends AppCompatActivity {
         firstnameInput.setText("");
         genderInput.setText("");
         heightInput.setText("");
+        checkSaveButtonActive();
     }
     public void doShowLog(View view){
         setContentView(logView);
@@ -92,5 +111,6 @@ public class PeopleMainActivity extends AppCompatActivity {
     public void doShowPersonInput(View view){
         setContentView(R.layout.person_input);
         createFields();
+        checkSaveButtonActive();
     }
 }
