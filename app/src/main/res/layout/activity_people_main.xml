@@ -18,5 +18,11 @@
         android:layout_height="wrap_content"
         android:onClick="doNavigationToPersonDemoInput"
         android:text="@string/gotoPersonDemoInput" />
+    <Button
+        android:id="@+id/buttonGotoPeopleList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="doNavigationToPeopleList"
+        android:text="@string/gotoPeopleList" />
 
 </LinearLayout>
