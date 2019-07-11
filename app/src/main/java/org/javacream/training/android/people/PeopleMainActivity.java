@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class PeopleMainActivity extends AppCompatActivity {
     private EditText heightInput;
     private LinearLayout logView;
     private Button saveButton;
+    private View inputView;
 
     {
         //DON'T DO ANYTHING INSIDE AN ACTIVITIES CONSTRUCTOR
@@ -30,20 +32,23 @@ public class PeopleMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("Lifecycle", "onCreate");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.person_input);
+        inputView = getLayoutInflater().inflate(R.layout.person_input, null);
         logView = (LinearLayout) getLayoutInflater().inflate(R.layout.log_layout, null);
         logView.setOrientation(LinearLayout.VERTICAL);
+        setContentView(inputView);
         createFields();
         checkSaveButtonActive();
     }
 
     private void createFields(){
-        View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener(){
+        View.OnKeyListener onKeyListener = new View.OnKeyListener(){
 
             @Override
-            public void onFocusChange(View view, boolean b) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 checkSaveButtonActive();
+                return false;
             }
+
         };
         lastnameInput  = this.findViewById(R.id.lastnameInput);
         firstnameInput  = this.findViewById(R.id.firstnameInput);
@@ -51,10 +56,10 @@ public class PeopleMainActivity extends AppCompatActivity {
         heightInput  = this.findViewById(R.id.heightInput);
         saveButton = findViewById(R.id.saveButton);
         lastnameInput.setText("HELLO FROM ACTIVITY");
-        lastnameInput.setOnFocusChangeListener(focusChangeListener);
-        firstnameInput.setOnFocusChangeListener(focusChangeListener);
-        heightInput.setOnFocusChangeListener(focusChangeListener);
-        genderInput.setOnFocusChangeListener(focusChangeListener);
+        lastnameInput.setOnKeyListener(onKeyListener);
+        firstnameInput.setOnKeyListener(onKeyListener);
+        heightInput.setOnKeyListener(onKeyListener);
+        genderInput.setOnKeyListener(onKeyListener);
     }
 
 
@@ -109,8 +114,6 @@ public class PeopleMainActivity extends AppCompatActivity {
         setContentView(logView);
     }
     public void doShowPersonInput(View view){
-        setContentView(R.layout.person_input);
-        createFields();
-        checkSaveButtonActive();
+        setContentView(inputView);
     }
 }
