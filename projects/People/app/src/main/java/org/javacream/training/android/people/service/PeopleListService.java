@@ -38,7 +38,7 @@ public class PeopleListService extends IntentService {
         if (intent != null) {
             Log.i("SimpleService", "simple service startet");
 		    try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
                 List<Person> people = PeopleApplicationContext.peopleModel().findAll();
                 sendNotification(people);
             } catch (InterruptedException e) {
@@ -58,9 +58,9 @@ public class PeopleListService extends IntentService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 01,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Builder builder = new Notification.Builder(getApplicationContext());
-        builder.setContentTitle("Content Title");
-        builder.setContentText("Content Text");
-        builder.setSubText("Sub Text");
+        builder.setContentTitle("Retrieved People List");
+        builder.setContentText("Elements: " + people.size());
+        //builder.setSubText("Sub Text");
         builder.setNumber(100);
         builder.setTicker("Notification by Service");
         builder.setSmallIcon(R.drawable.ic_launcher_foreground);
