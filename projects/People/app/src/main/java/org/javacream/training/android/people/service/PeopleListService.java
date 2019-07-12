@@ -52,10 +52,11 @@ public class PeopleListService extends IntentService {
         createNotificationChannel();
         // Pending intent to be fired when notification is clicked
         Intent intent = new Intent(this, PeopleListActivity.class);
+        intent.setAction("ACTION");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("people", (Serializable)people);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 01,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        intent.putExtra("people", (Serializable)people);
         Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle("Content Title");
         builder.setContentText("Content Text");
