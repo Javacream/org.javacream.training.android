@@ -3,6 +3,7 @@ package org.javacream.training.android.people;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,8 +29,16 @@ public class PeopleListActivity extends AppCompatActivity implements DeletePerso
         setContentView(R.layout.activity_people_list);
         ListView peopleListView = findViewById(R.id.peopleListView);
         peopleListView.setAdapter(peopleArrayAdapter);
-        listPeopleController = PeopleApplicationContext.listPeopleController();
-        listPeopleController.listPeople(this);    }
+        Intent intent = getIntent();
+        List<Person> people = (List<Person>) intent.getSerializableExtra("people");
+        if (people == null) {
+            listPeopleController = PeopleApplicationContext.listPeopleController();
+            listPeopleController.listPeople(this);
+        }
+        else{
+            updateListPeople(people);
+        }
+    }
 
     @Override
     public void updateDeletePerson() {

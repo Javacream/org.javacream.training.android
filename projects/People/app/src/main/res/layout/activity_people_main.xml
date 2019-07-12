@@ -41,11 +41,27 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/buttonPeopleListWithService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="doNavigationToPeopleListWithService"
+            android:text="@string/buttonPeopleListWithService" />
+
+        <Button
             android:id="@+id/buttonGotoDeletePerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="doNavigationToDeletePerson"
             android:text="@string/gotoDeletePerson" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="showServerWebSite"
+            android:text="@string/website" />
     </LinearLayout>
 
 </LinearLayout>
