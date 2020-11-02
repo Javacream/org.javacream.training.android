@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private View debugView;
     private TextView debug;
     private LinearLayout debugViewSlot;
+    private Button debugButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         heightInput  = this.findViewById(R.id.heightInput);
         peopleController = ApplicationContext.peopleController();
         debugViewSlot = findViewById(R.id.debugViewSlot);
-        View debugView = getLayoutInflater().inflate(R.layout.debug_layout, null);
+        debugView = getLayoutInflater().inflate(R.layout.debug_layout, null);
         debug = debugView.findViewById(R.id.debugTextView);
+        debugButton = findViewById(R.id.debugButton);
     }
 
     @Override
@@ -64,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handleDebug(View view) {
-        if (debugIsShowing){
+        if (!debugIsShowing){
             debugViewSlot.addView(debugView);
+            debugButton.setText("Hide Debug");
         }else{
             debugViewSlot.removeAllViews();
+            debugButton.setText("Show Debug");
         }
         debugIsShowing = ! debugIsShowing;
     }
