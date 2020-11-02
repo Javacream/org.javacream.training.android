@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             />
 
 
@@ -125,13 +125,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/buttonSave" />
+            android:text="@string/buttonSave"
+            android:onClick="save"
+            />
         <Button
             android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/buttonReset"
+            android:onClick="clear"
             />
     </LinearLayout>
 
