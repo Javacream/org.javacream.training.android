@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.javacream.training.android.model.PeopleController;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private EditText lastnameInput;
@@ -16,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText genderInput;
     private EditText heightInput;
     private PeopleController peopleController;
+    private boolean debugIsShowing = false;
+    private View debugView;
+    private TextView debug;
+    private LinearLayout debugViewSlot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
         firstnameInput  = this.findViewById(R.id.firstnameInput);
         genderInput  = this.findViewById(R.id.genderInput);
         heightInput  = this.findViewById(R.id.heightInput);
-        peopleController = new PeopleController();
+        peopleController = ApplicationContext.peopleController();
+        debugViewSlot = findViewById(R.id.debugViewSlot);
+        View debugView = getLayoutInflater().inflate(R.layout.debug_layout, null);
+        debug = debugView.findViewById(R.id.debugTextView);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     public void clear(View view) {
@@ -33,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         firstnameInput.setText("");
         heightInput.setText("");
         genderInput.setText("");
-
+        debug.setText("cleared at " + new Date());
     }
     public void save(View view) {
         String lastname = lastnameInput.getText().toString();
@@ -44,5 +60,15 @@ public class MainActivity extends AppCompatActivity {
         peopleController.dump();
         Log.i("training", "saved person " + id);
         Toast.makeText(this, "saved person " + id, Toast.LENGTH_LONG).show();
+        debug.setText("saved at " + new Date());
+    }
+
+    public void handleDebug(View view) {
+        if (debugIsShowing){
+            debugViewSlot.addView(debugView);
+        }else{
+            debugViewSlot.removeAllViews();
+        }
+        debugIsShowing = ! debugIsShowing;
     }
 }
