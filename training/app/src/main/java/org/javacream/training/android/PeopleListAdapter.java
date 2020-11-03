@@ -1,6 +1,8 @@
 package org.javacream.training.android;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,9 +33,21 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
         convertView.findViewById(R.id.deletePersonButton).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                remove(p);
-                ApplicationContext.peopleController().deleteById(p.getId());
-                notifyDataSetChanged();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        remove(p);
+                        ApplicationContext.peopleController().deleteById(p.getId());
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Abort", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 return false;
             }
         });
