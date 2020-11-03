@@ -54,9 +54,8 @@ public class PersonInputActivity extends AppCompatActivity {
         String firstname = firstnameInput.getText().toString();
         char gender = genderInput.getText().charAt(0);
         int height = Integer.parseInt(heightInput.getText().toString());
-        Long id = peopleController.newPerson(lastname, firstname, height, gender);
-        Log.i("training", "saved person " + id);
-        Toast.makeText(this, "saved person " + id, Toast.LENGTH_LONG).show();
+        peopleController.create(lastname, firstname, gender, height);
+        Toast.makeText(this, "saved person ", Toast.LENGTH_LONG).show();
         debug.setText("saved at " + new Date());
     }
 

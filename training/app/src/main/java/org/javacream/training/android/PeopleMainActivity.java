@@ -29,6 +29,6 @@ public class PeopleMainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         TextView header = findViewById(R.id.header);
-        header.setText(getString(R.string.caption) + "(" + ApplicationContext.peopleController().count() + ")");
+        header.setText(getString(R.string.caption));
     }
 }

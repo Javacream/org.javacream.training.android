@@ -37,7 +37,7 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
                 builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         remove(p);
-                        ApplicationContext.peopleController().deleteById(p.getId());
+                        ApplicationContext.peopleController().deleteAsync(p.getId());
                         notifyDataSetChanged();
                     }
                 });
