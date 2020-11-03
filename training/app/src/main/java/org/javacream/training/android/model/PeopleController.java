@@ -30,4 +30,7 @@ public class PeopleController {
     public int count(){
         return people.size();
     }
+    public void deleteById(Long id){
+        people.remove(id);
+    }
 }

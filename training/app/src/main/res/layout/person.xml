@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/personLastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/personFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+         />
+
+    <TextView
+        android:id="@+id/personLastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         />
+
+    <ImageButton
+        android:id="@+id/deletePersonButton"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="Delete"
+        android:src="@android:drawable/btn_minus" />
 </LinearLayout>

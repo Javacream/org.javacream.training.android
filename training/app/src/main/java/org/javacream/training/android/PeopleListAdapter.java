@@ -28,6 +28,15 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate( R.layout.person, parent, false);
         }
+        convertView.findViewById(R.id.deletePersonButton).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                remove(p);
+                ApplicationContext.peopleController().deleteById(p.getId());
+                notifyDataSetChanged();
+                return false;
+            }
+        });
         TextView firstname = convertView.findViewById(R.id.personFirstname);
         firstname.setText(p.getFirstname());
         TextView lastname = convertView.findViewById(R.id.personLastname);
