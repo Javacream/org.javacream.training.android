@@ -15,7 +15,7 @@ import org.javacream.training.android.model.PeopleController;
 
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class PersonInputActivity extends AppCompatActivity {
     private EditText lastnameInput;
     private EditText firstnameInput;
     private EditText genderInput;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_person_input);
         lastnameInput  = this.findViewById(R.id.lastnameInput);
         firstnameInput  = this.findViewById(R.id.firstnameInput);
         genderInput  = this.findViewById(R.id.genderInput);
@@ -75,5 +75,9 @@ public class MainActivity extends AppCompatActivity {
             debugButton.setText("Show Debug");
         }
         debugIsShowing = ! debugIsShowing;
+    }
+
+    public void goBack(View view) {
+        finish();
     }
 }
