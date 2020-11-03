@@ -13,6 +13,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="backButtonCaption">Back</string>
     <string name="goto_person_input_caption">Goto Person Input</string>
+    <string name="goto_people_list_caption">Goto People List</string>
 
 
 </resources>

@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PeopleMainActivity">
-
+    tools:context=".PeopleMainActivity"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#63f496"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textSize="30sp" />
     <Button
         android:id="@+id/navPersonInput"
         android:layout_width="wrap_content"
@@ -13,4 +22,12 @@
         android:layout_weight="1"
         android:text="@string/goto_person_input_caption"
         android:onClick="navPersonInput"/>
+    <Button
+        android:id="@+id/navPeopleList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/goto_people_list_caption"
+        android:onClick="navPeopleList"/>
+
 </LinearLayout>
