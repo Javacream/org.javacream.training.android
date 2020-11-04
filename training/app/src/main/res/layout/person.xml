@@ -24,4 +24,11 @@
         android:layout_weight="1"
         android:contentDescription="Delete"
         android:src="@android:drawable/btn_minus" />
+    <ImageButton
+        android:id="@+id/showWikiForPersonButton"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="Wiki"
+        android:src="@android:drawable/btn_plus" />
 </LinearLayout>

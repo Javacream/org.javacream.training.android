@@ -3,6 +3,8 @@ package org.javacream.training.android;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,10 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate( R.layout.person, parent, false);
         }
+        TextView firstname = convertView.findViewById(R.id.personFirstname);
+        firstname.setText(p.getFirstname());
+        TextView lastname = convertView.findViewById(R.id.personLastname);
+        lastname.setText(p.getLastname());
         convertView.findViewById(R.id.deletePersonButton).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -51,10 +57,14 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
                 return false;
             }
         });
-        TextView firstname = convertView.findViewById(R.id.personFirstname);
-        firstname.setText(p.getFirstname());
-        TextView lastname = convertView.findViewById(R.id.personLastname);
-        lastname.setText(p.getLastname());
+        convertView.findViewById(R.id.showWikiForPersonButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://de.wikipedia.org/wiki/" + p.getFirstname() + "_" + p.getLastname()));
+                getContext().startActivity(i);
+            }
+        });
         return convertView;
+        }
     }
-}
+
