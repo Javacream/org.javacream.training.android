@@ -2,6 +2,7 @@ package org.javacream.training.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -17,6 +18,7 @@ public class PeopleListActivity extends AppCompatActivity implements PeopleContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_list);
         ApplicationContext.peopleController().findAllAsync(this);
+
     }
 
 
