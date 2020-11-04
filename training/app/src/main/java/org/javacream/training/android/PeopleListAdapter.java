@@ -60,7 +60,10 @@ public class PeopleListAdapter extends ArrayAdapter<Person> {
         convertView.findViewById(R.id.showWikiForPersonButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://de.wikipedia.org/wiki/" + p.getFirstname() + "_" + p.getLastname()));
+                //Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://de.wikipedia.org/wiki/" + p.getFirstname() + "_" + p.getLastname()));
+                Intent i = new Intent(getContext(), WebViewActivity.class);
+                i.putExtra("lastname", p.getLastname());
+                i.putExtra("firstname", p.getFirstname());
                 getContext().startActivity(i);
             }
         });

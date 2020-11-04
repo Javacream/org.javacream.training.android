@@ -7,8 +7,7 @@ public class PeopleControllerTest {
 
     @Test public void testPeopleController(){
         PeopleController pc = new PeopleController();
-        Long id = pc.newPerson("Muster", "Mann", 199, 'f');
-        Assert.assertNotNull(id);
+        pc.create("Muster", "Mann", 'f', 199);
 
     }
 }
